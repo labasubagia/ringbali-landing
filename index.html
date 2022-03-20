@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RingBali</title>
+    <meta name="description" content="Free open source Tailwind CSS Store template">
+    <meta name="keywords" content="tailwind,tailwindcss,tailwind css,css,starter template,free template,store template, shop layout, minimal, monochrome, minimalistic, theme, nordic">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+	
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+
+    <style>
+        .work-sans {
+            font-family: 'Work Sans', sans-serif;
+        }
+                
+        #menu-toggle:checked + #menu {
+            display: block;
+        }
+        
+        .hover\:grow {
+            transition: all 0.3s;
+            transform: scale(1);
+        }
+        
+        .hover\:grow:hover {
+            transform: scale(1.02);
+        }
+        
+        .carousel-open:checked + .carousel-item {
+            position: static;
+            opacity: 100;
+        }
+        
+        .carousel-item {
+            -webkit-transition: opacity 0.6s ease-out;
+            transition: opacity 0.6s ease-out;
+        }
+        
+        #carousel-1:checked ~ .control-1,
+        #carousel-2:checked ~ .control-2,
+        #carousel-3:checked ~ .control-3 {
+            display: block;
+        }
+        
+        .carousel-indicators {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            bottom: 2%;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 10;
+        }
+        
+        #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+        #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+        #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+            color: #000;
+            /*Set to match the Tailwind colour you want the active one to be */
+        }
+    </style>
+
+</head>
+
+<body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
+
+    <!--Nav-->
+    <nav id="header" class="w-full z-30 top-0 py-1">
+        <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
+
+            <label for="menu-toggle" class="cursor-pointer md:hidden block">
+                <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <title>menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+            </label>
+            <input class="hidden" type="checkbox" id="menu-toggle" />
+
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+                <nav>
+                    <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#product">Product</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#artist">Artist</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#about">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="order-2 md:order-3 flex items-center" id="nav-content">
+
+                <a class="inline-block no-underline hover:text-black" href="#">
+                    <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <circle fill="none" cx="12" cy="7" r="3" />
+                        <path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zM12 10c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 10 12 10zM21 21v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h2v-1c0-2.757 2.243-5 5-5h4c2.757 0 5 2.243 5 5v1H21z" />
+                    </svg>
+                </a>
+
+                <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+                    <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M21,7H7.462L5.91,3.586C5.748,3.229,5.392,3,5,3H2v2h2.356L9.09,15.414C9.252,15.771,9.608,16,10,16h8 c0.4,0,0.762-0.238,0.919-0.606l3-7c0.133-0.309,0.101-0.663-0.084-0.944C21.649,7.169,21.336,7,21,7z M17.341,14h-6.697L8.371,9 h11.112L17.341,14z" />
+                        <circle cx="10.5" cy="18.5" r="1.5" />
+                        <circle cx="17.5" cy="18.5" r="1.5" />
+                    </svg>
+                </a>
+
+            </div>
+        </div>
+    </nav>
+
+  
+
+    <section class="w-full mx-auto bg-nordic-gray-light flex pt-12 md:pt-0 md:items-center bg-cover bg-right" style="max-width:1600px; height: 32rem; background-image: url('asset/img/hero-bg.png');">
+    	<div class="container mx-auto"></div>
+    </section>
+
+<main class="my-8">
+    <div class="container mx-auto px-8">
+        <!--product-->
+        <header class="mb-2 text-3xl font-bold flex items-center justify-center" id="product">Our Product</header>
+        <div class="h-64 rounded-md overflow-hidden bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1497219055242-93359eeed651?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1449&q=80')">
+            <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
+                <div class="px-10 max-w-xl">
+                    <h2 class="text-2xl text-white font-semibold">Ukiran Kayu</h2>
+                    <p class="mt-2 text-gray-200">Kerajinan ukiran kayu berupa bingkai foto, pajangan dinding, patung, dan banyak lagi. kerajinan ukiran kayu memiliki nilai seni yang tinggi.</p>
+                    <button class="flex items-center mt-4 px-3 py-2 bg-blue-600 text-white text-sm uppercase font-medium rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+                        <span>More..</span>
+                    </button>
+                </div>  
+            </div>
+        </div>
+        <div class="md:flex mt-8 md:-mx-4">
+            <div class="w-full h-64 md:mx-4 rounded-md overflow-hidden bg-cover bg-center md:w-1/2" style="background-image: url('https://images.unsplash.com/photo-1527383214149-cb7be04ae387?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')">
+                <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
+                    <div class="px-10 max-w-xl">
+                        <h2 class="text-2xl text-white font-semibold">Kerajinan Tangan</h2>
+                        <p class="mt-2 text-gray-200">Kerajinan tangan yang langsung dibuat oleh pengrajin lokal bali dengan bahan pilihan yang berkualitas serta memiliki nilai estetika tinggi</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full h-64 mt-8 md:mx-4 rounded-md overflow-hidden bg-cover bg-center md:mt-0 md:w-1/2" style="background-image: url('https://kuka.co.id/asset/product_photo/69362a-600x600.jpg')">
+                <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
+                    <div class="px-10 max-w-xl">
+                        <h2 class="text-2xl text-white font-semibold">Aksesoris</h2>
+                        <p class="mt-2 text-gray-200">Aksesoris dan perhiasan yang biasa digunakan sehari-hari berbahan emas ataupun perak, dibuat dengan teliti dan sempurna oleh pengrajin lokal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    
+        <!--meet the artist-->
+        <div class="mt-16">
+            <header class="mb-2 text-3xl font-bold flex items-center justify-center" id="artist"> Meet The Artist</header>
+            <div class="h-64 rounded-md overflow-hidden bg-cover bg-center" style="background-image: url('https://www.goodnewsfromindonesia.id/uploads/post/large-shutterstock-144841870-d726bb1ec151379cabad05978aeecf36.jpg')">
+                <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
+                    <div class="px-10 max-w-xl">
+                        <h2 class="text-2xl text-white font-semibold">The local Artist</h2>
+                        <p class="mt-2 text-gray-200">Diharapkan dengan adanya platform ini produk dapat dikenal lebih luas dan meningkatkan pendapatan dari pengrajin lokal yang terkena dampak pandemi.</p>
+                        <button class="flex items-center mt-4 px-3 py-2 bg-blue-600 text-white text-sm uppercase font-medium rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+                            <span>More..</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
+                <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
+                    <div class="bg-white  shadow-lg    transform   duration-200 easy-in-out">
+                        <div class=" h-32 overflow-hidden" >
+                            <img class="w-full" src="data:image/jpeg;base64,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" alt="" />
+                        </div>
+                        <div class="flex justify-center px-5  -mt-12">
+                            <img class="h-32 w-32 bg-white p-2 rounded-full" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80" alt="" />
+                
+                        </div>
+                        <div class=" ">
+                            <div class="text-center px-14">
+                                <h2 class="text-gray-800 text-3xl font-bold">Mohit Dhiman</h2>
+                                <p class="text-gray-400 mt-2">@immohitdhiman</p>
+                                <p class="mt-2 text-gray-600">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
+                    <div class="bg-white  shadow-lg    transform   duration-200 easy-in-out">
+                        <div class=" h-32 overflow-hidden" >
+                            <img class="w-full" src="http://prexer.org/wp-content/uploads/2018/08/Industri-Kreatif-Kerajinan-Kayu-Bali-Rambah-sampai-Mancanegara.jpg" alt="" />
+                        </div>
+                        <div class="flex justify-center px-5  -mt-12">
+                            <img class="h-32 w-32 bg-white p-2 rounded-full   " src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80" alt="" />
+                
+                        </div>
+                        <div class=" ">
+                            <div class="text-center px-14">
+                                <h2 class="text-gray-800 text-3xl font-bold">Mohit Dhiman</h2>
+                                <p class="text-gray-400 mt-2">@immohitdhiman</p>
+                                <p class="mt-2 text-gray-600">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
+                    <div class="bg-white  shadow-lg    transform   duration-200 easy-in-out">
+                        <div class=" h-32 overflow-hidden" >
+                            <img class="w-full" src="https://gbr.putrama.co.id/wp-content/uploads/2019/02/88.-Bukan-Hanya-Alam-Inilah-7-Destinasi-Wisata-Kerajinan-di-Bali-yang-Tak-Kalah-Menarik.jpg" alt="" />
+                        </div>
+                        <div class="flex justify-center px-5  -mt-12">
+                            <img class="h-32 w-32 bg-white p-2 rounded-full   " src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80" alt="" />
+                
+                        </div>
+                        <div class=" ">
+                            <div class="text-center px-14">
+                                <h2 class="text-gray-800 text-3xl font-bold">Mohit Dhiman</h2>
+                                <p class="text-gray-400 mt-2">@immohitdhiman</p>
+                                <p class="mt-2 text-gray-600">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
+                    <div class="bg-white  shadow-lg    transform   duration-200 easy-in-out">
+                        <div class=" h-32 overflow-hidden" >
+                            <img class="w-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvSr3LajDNQK3aKE4RzcjsvX0t0vwg06jqwQ&usqp=CAU" alt="" />
+                        </div>
+                        <div class="flex justify-center px-5  -mt-12">
+                            <img class="h-32 w-32 bg-white p-2 rounded-full   " src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80" alt="" />
+                
+                        </div>
+                        <div class=" ">
+                            <div class="text-center px-14">
+                                <h2 class="text-gray-800 text-3xl font-bold">Mohit Dhiman</h2>
+                                <p class="text-gray-400 mt-2">@immohitdhiman</p>
+                                <p class="mt-2 text-gray-600">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+<footer class="container mx-auto bg-white py-8 border-t border-gray-400" id="about">
+        <div class="container flex px-3 py-8 ">
+            <div class="w-full mx-auto flex flex-wrap">
+                <div class="flex w-full lg:w-2/3">
+                    <div class="px-3 md:px-0">
+                        <h3 class="font-bold text-gray-900">About</h3>
+                        <p class="py-4">
+                            Ring memiliki arti “cincin” yang identik dengan perhiasan dan kerajinan handmade.  Atau bisa juga dalam bahasa Bali ring juga berarti “dari”, Warna Coklat keemasan memberikan kesan hangat, nyaman dan aman. jadi nama RingBali bisa diartikan sebagai kerajinan handmade yang dibuat oleh pengrajin lokal yang ada di Bali.
+                            <br>    
+                            <br>Pemasaran kerajinan di bali saat ini hanya sebatas penjualan di toko atau gerai yang ada di lokasi wisata, apalagi dimasa pandemi Covid-19 ini kedatangan wisatawan sangat berkurang ke Bali sehingga sangat berdampak kepada pengrajin yang membuat oleh-oleh handmade khas Bali. Untuk membantu Pengrajin, RingBali situs E-Commerce yang menyalurkan produk kerajinan Handmade yang langsung diambil dari pengrajin lokal.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex w-full lg:w-1/3 lg:justify-end lg:text-right">
+                    <div class="px-3 md:px-0">
+                        <h3 class="font-bold text-gray-900">Social</h3>
+                        <ul class="list-reset items-center pt-3">
+                            <li>
+                                <a class="inline-block no-underline hover:text-black hover:underline py-1 flex items-center justify-center fab fill-current text-xl fa-instagram" href="https://instagram.com/ringbalicrafting?utm_medium=copy_link">RingBali </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+</footer>
+
+</body>
+
+</html>
